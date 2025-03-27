@@ -11,3 +11,12 @@ Console.WriteLine(@"Avoid the bad guys (%) and collect as much money (^ or $) as
 Press any key to begin.");
 Console.ReadKey(true);
 Console.Clear();
+
+/*Add the map*/
+string[] maze = File.ReadAllLines("maze.txt");
+char[][] mazeChar = maze.Select(item => item.ToArray()).ToArray(); //thank you for this code!!!
+
+foreach (char[] character in mazeChar)
+{
+    Console.WriteLine(character);
+}

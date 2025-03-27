@@ -1,0 +1,15 @@
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\bin\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.exe
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\bin\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.deps.json
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\bin\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.runtimeconfig.json
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\bin\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.dll
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\bin\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.pdb
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.AssemblyInfoInputs.cache
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.AssemblyInfo.cs
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.csproj.CoreCompileInputs.cache
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.sourcelink.json
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.dll
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\refint\lab-9-maze-part-2-benji-stansfield.dll
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.pdb
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\lab-9-maze-part-2-benji-stansfield.genruntimeconfig.cache
+C:\Users\benji\code\my-code-dir\lab-9-maze-part-2-benji-stansfield\obj\Debug\net8.0\ref\lab-9-maze-part-2-benji-stansfield.dll
