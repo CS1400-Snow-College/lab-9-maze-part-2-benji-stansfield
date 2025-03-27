@@ -16,7 +16,32 @@ Console.Clear();
 string[] maze = File.ReadAllLines("maze.txt");
 char[][] mazeChar = maze.Select(item => item.ToArray()).ToArray(); //thank you for this code!!!
 
-foreach (char[] character in mazeChar)
+foreach (char[] character in mazeChar) //prints the maze map
 {
     Console.WriteLine(character);
 }
+
+Console.SetCursorPosition(0,0); //sets the user to the beginning of the maze
+
+/*User controls*/
+ConsoleKey key;
+do
+{
+    key = Console.ReadKey(true).Key; //reads the user input one at a time
+
+    switch (key)
+    {
+        case ConsoleKey.UpArrow:
+            Console.CursorTop--;
+            break;
+        case ConsoleKey.DownArrow:
+            Console.CursorTop++;
+            break;
+        case ConsoleKey.LeftArrow:
+            Console.CursorLeft--;
+            break;
+        case ConsoleKey.RightArrow:
+            Console.CursorLeft++;
+            break;
+    }
+} while (key != ConsoleKey.Escape); //quits the program if the escape key is pressed
