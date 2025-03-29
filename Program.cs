@@ -29,19 +29,34 @@ do
 {
     key = Console.ReadKey(true).Key; //reads the user input one at a time
 
+    int proposedTop = Console.CursorTop; //stores the proposed values to validate them
+    int proposedLeft = Console.CursorLeft;
+
     switch (key)
     {
         case ConsoleKey.UpArrow:
-            Console.CursorTop--;
+            proposedTop--;
             break;
         case ConsoleKey.DownArrow:
-            Console.CursorTop++;
+            proposedTop++;
             break;
         case ConsoleKey.LeftArrow:
-            Console.CursorLeft--;
+            proposedLeft--;
             break;
         case ConsoleKey.RightArrow:
-            Console.CursorLeft++;
+            proposedLeft++;
             break;
     }
+    TryMove(proposedLeft, proposedTop, maze);
 } while (key != ConsoleKey.Escape); //quits the program if the escape key is pressed
+
+static bool TryMove(int proposedLeft, int proposedTop, string[] mapRows) //need to create new variables because of the static in front
+{
+    if (proposedTop < 0 || proposedTop >= Math.Min(Console.BufferHeight, mapRows.Length))
+        return false;
+    if (proposedLeft < 0 || proposedLeft >= Math.Min(Console.BufferWidth, mapRows[proposedTop].Length))
+        return false;
+
+    Console.SetCursorPosition(proposedLeft, proposedTop); //sets the cursor position if all the checks pass
+    return true;
+}
