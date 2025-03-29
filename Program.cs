@@ -56,6 +56,8 @@ static bool TryMove(int proposedLeft, int proposedTop, string[] mapRows) //need 
         return false;
     if (proposedLeft < 0 || proposedLeft >= Math.Min(Console.BufferWidth, mapRows[proposedTop].Length))
         return false;
+    if (mapRows[proposedTop][proposedLeft] == '*' || mapRows[proposedTop][proposedLeft] == '|')
+        return false;
 
     Console.SetCursorPosition(proposedLeft, proposedTop); //sets the cursor position if all the checks pass
     return true;

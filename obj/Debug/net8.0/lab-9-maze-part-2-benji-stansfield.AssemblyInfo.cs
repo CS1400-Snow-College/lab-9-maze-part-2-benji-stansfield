@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab-9-maze-part-2-benji-stansfield")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15e19bf57c80287d5388ff62072b0cd7f84bf0fe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f66559639b92aadaaef0b11e17aa48a95696ce4")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab-9-maze-part-2-benji-stansfield")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab-9-maze-part-2-benji-stansfield")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
