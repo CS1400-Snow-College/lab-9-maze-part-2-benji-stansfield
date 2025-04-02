@@ -87,6 +87,20 @@ do
         Console.Write($"Score: {score}   "); //updates the score on screen
 
         Console.SetCursorPosition(playerLeft, playerTop); //resets cursor back to where it was
+
+        if (score >= 1000)
+        {
+            maze = File.ReadAllLines("maze2.txt");
+            mazeChar = maze.Select(item => item.ToArray()).ToArray();
+            Console.SetCursorPosition(0,0);
+
+            foreach (char[] character in mazeChar) //prints the maze map
+            {
+                Console.WriteLine(character);
+            }
+
+            Console.SetCursorPosition(playerLeft, playerTop);
+        }
     }
 } while (key != ConsoleKey.Escape); //quits the program if the escape key is pressed
 
