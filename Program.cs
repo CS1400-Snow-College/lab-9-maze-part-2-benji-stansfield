@@ -25,6 +25,9 @@ foreach (char[] character in mazeChar) //prints the maze map
     Console.WriteLine(character);
 }
 
+Console.SetCursorPosition(mazeChar[0].Length + 5, 0);
+Console.Write($"Score: {score}");
+
 Console.SetCursorPosition(playerLeft, playerTop); //sets the user to the beginning of the maze
 
 /*User controls*/
@@ -76,8 +79,14 @@ do
             return;
         }
 
-        playerLeft = proposedLeft; //updates user position
+        playerLeft = proposedLeft;
         playerTop = proposedTop;
+        Console.SetCursorPosition(playerLeft, playerTop); //updates user position
+
+        Console.SetCursorPosition(mazeChar[0].Length + 5, 0);
+        Console.Write($"Score: {score}   "); //updates the score on screen
+
+        Console.SetCursorPosition(playerLeft, playerTop); //resets cursor back to where it was
     }
 } while (key != ConsoleKey.Escape); //quits the program if the escape key is pressed
 
