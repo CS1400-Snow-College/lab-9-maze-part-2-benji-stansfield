@@ -62,6 +62,19 @@ do
             score += 100;
             mazeChar[proposedTop][proposedLeft] = ' ';
         }
+        else if (mazeChar[proposedTop][proposedLeft] == '$')
+        {
+            score += 200;
+            mazeChar[proposedTop][proposedLeft] = ' ';
+        }
+        else if (mazeChar[proposedTop][proposedLeft] == '#')
+        {
+            Console.Clear();
+            Console.WriteLine("------------");
+            Console.WriteLine(" YOU WIN!!!");
+            Console.WriteLine("------------");
+            return;
+        }
 
         playerLeft = proposedLeft; //updates user position
         playerTop = proposedTop;
