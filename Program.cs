@@ -16,12 +16,16 @@ Console.Clear();
 string[] maze = File.ReadAllLines("maze.txt");
 char[][] mazeChar = maze.Select(item => item.ToArray()).ToArray(); //thank you for this code!!!
 
+int score = 0;
+int playerLeft = 0;
+int playerTop = 0;
+
 foreach (char[] character in mazeChar) //prints the maze map
 {
     Console.WriteLine(character);
 }
 
-Console.SetCursorPosition(0,0); //sets the user to the beginning of the maze
+Console.SetCursorPosition(playerLeft, playerTop); //sets the user to the beginning of the maze
 
 /*User controls*/
 ConsoleKey key;
@@ -29,8 +33,8 @@ do
 {
     key = Console.ReadKey(true).Key; //reads the user input one at a time
 
-    int proposedTop = Console.CursorTop; //stores the proposed values to validate them
-    int proposedLeft = Console.CursorLeft;
+    int proposedTop = playerTop; //stores the proposed values to validate them
+    int proposedLeft = playerLeft;
 
     switch (key)
     {
@@ -47,18 +51,31 @@ do
             proposedLeft++;
             break;
     }
-    TryMove(proposedLeft, proposedTop, maze);
+    
+    if (TryMove(proposedLeft, proposedTop, mazeChar))
+    {   
+        Console.SetCursorPosition(playerLeft, playerTop);
+        Console.Write(' '); //eraseses user's previous position
+
+        if (mazeChar[proposedTop][proposedLeft] == '^')
+        {
+            score += 100;
+            mazeChar[proposedTop][proposedLeft] = ' ';
+        }
+
+        playerLeft = proposedLeft; //updates user position
+        playerTop = proposedTop;
+    }
 } while (key != ConsoleKey.Escape); //quits the program if the escape key is pressed
 
-static bool TryMove(int proposedLeft, int proposedTop, string[] mapRows) //need to create new variables because of the static in front
+static bool TryMove(int proposedLeft, int proposedTop, char[][] mazeChar) //need to create new variables because of the static in front
 {
-    if (proposedTop < 0 || proposedTop >= Math.Min(Console.BufferHeight, mapRows.Length))
+    if (proposedTop < 0 || proposedTop >= Math.Min(Console.BufferHeight, mazeChar.Length))
         return false;
-    if (proposedLeft < 0 || proposedLeft >= Math.Min(Console.BufferWidth, mapRows[proposedTop].Length))
+    if (proposedLeft < 0 || proposedLeft >= Math.Min(Console.BufferWidth, mazeChar[proposedTop].Length))
         return false;
-    if (mapRows[proposedTop][proposedLeft] == '*' || mapRows[proposedTop][proposedLeft] == '|')
+    if (mazeChar[proposedTop][proposedLeft] == '*' ||mazeChar[proposedTop][proposedLeft] == '|')
         return false;
 
-    Console.SetCursorPosition(proposedLeft, proposedTop); //sets the cursor position if all the checks pass
     return true;
 }
