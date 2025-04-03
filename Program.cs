@@ -136,6 +136,9 @@ do
 
             Console.SetCursorPosition(playerLeft, playerTop);
         }
+
+        if (score >= 2800) //temporary fix to the unlimited score problem ('$' won't go away)
+            score = 2800;
     }
 } while (key != ConsoleKey.Escape); //quits the program if the escape key is pressed
 
