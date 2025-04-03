@@ -152,3 +152,6 @@ static bool TryMove(int proposedLeft, int proposedTop, char[][] mazeChar) //need
 
     return true;
 }
+
+/*I know that I am missing a few things on this project but I couldn't figure them out. Namely collecting the '$' and moving the bad guys.*/
+/*Any help or feedback on this project would be really helpful as I really do want to know how to do this*/
