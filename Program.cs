@@ -1,7 +1,8 @@
 ﻿/*Benji Stansfield, 3-27-25, Lab 9 "Maze 2"*/
-using System.Security.Cryptography;
-
+using System.Diagnostics;
 Console.Clear();
+
+Stopwatch stopwatch = new Stopwatch();
 
 /*Intro screen*/
 Console.WriteLine(@"-------------
@@ -37,6 +38,8 @@ void PrintMaze()
 PrintMaze();
 
 Console.SetCursorPosition(playerLeft, playerTop); //sets the user to the beginning of the maze
+
+stopwatch.Start();
 
 /*User controls*/
 ConsoleKey key;
@@ -81,20 +84,33 @@ do
         else if (mazeChar[proposedTop][proposedLeft] == '#')
         {
             Console.Clear();
+            stopwatch.Stop();
+            double time = stopwatch.ElapsedMilliseconds / 1000.0;
+
             Console.WriteLine("------------");
             Console.WriteLine(" YOU WIN!!!");
             Console.WriteLine("------------");
+            Console.WriteLine();
+            Console.WriteLine($"Money collected: {score}");
+            Console.WriteLine($"Time: {time} seconds");
+            Console.WriteLine($"Total score: {score - (time*10)}");
             return;
         }
         else if (mazeChar[proposedTop][proposedLeft] == '%')
         {
             Console.Clear();
+            stopwatch.Stop();
+            double time = stopwatch.ElapsedMilliseconds / 1000.0;
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("-----------");
             Console.WriteLine(" YOU LOSE.");
             Console.WriteLine("-----------");
-            Console.WriteLine();
             Console.WriteLine("You were killed by an enemy.");
+            Console.WriteLine();
+            Console.WriteLine($"Money collected: {score}");
+            Console.WriteLine($"Time: {time} seconds");
+            Console.WriteLine($"Total score: {score - (time*10)}");
             Console.ForegroundColor = ConsoleColor.White;
             return;
         }
