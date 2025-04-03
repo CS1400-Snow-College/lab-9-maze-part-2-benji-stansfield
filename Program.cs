@@ -1,4 +1,6 @@
 ﻿/*Benji Stansfield, 3-27-25, Lab 9 "Maze 2"*/
+using System.Security.Cryptography;
+
 Console.Clear();
 
 /*Intro screen*/
@@ -20,13 +22,19 @@ int score = 0;
 int playerLeft = 0;
 int playerTop = 0;
 
-foreach (char[] character in mazeChar) //prints the maze map
+void PrintMaze()
 {
-    Console.WriteLine(character);
+    Console.Clear();
+    foreach (char[] character in mazeChar)
+    {
+        Console.WriteLine(character);
+    }
+
+    Console.SetCursorPosition(mazeChar[0].Length + 5, 0);
+    Console.Write($"Score: {score}");
 }
 
-Console.SetCursorPosition(mazeChar[0].Length + 5, 0);
-Console.Write($"Score: {score}");
+PrintMaze();
 
 Console.SetCursorPosition(playerLeft, playerTop); //sets the user to the beginning of the maze
 
@@ -78,9 +86,24 @@ do
             Console.WriteLine("------------");
             return;
         }
+        else if (mazeChar[proposedTop][proposedLeft] == '%')
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("-----------");
+            Console.WriteLine(" YOU LOSE.");
+            Console.WriteLine("-----------");
+            Console.WriteLine();
+            Console.WriteLine("You were killed by an enemy.");
+            Console.ForegroundColor = ConsoleColor.White;
+            return;
+        }
 
         playerLeft = proposedLeft;
         playerTop = proposedTop;
+
+        PrintMaze();
+
         Console.SetCursorPosition(playerLeft, playerTop); //updates user position
 
         Console.SetCursorPosition(mazeChar[0].Length + 5, 0);
@@ -92,12 +115,8 @@ do
         {
             maze = File.ReadAllLines("maze2.txt");
             mazeChar = maze.Select(item => item.ToArray()).ToArray();
-            Console.SetCursorPosition(0,0);
 
-            foreach (char[] character in mazeChar) //prints the maze map
-            {
-                Console.WriteLine(character);
-            }
+            PrintMaze();
 
             Console.SetCursorPosition(playerLeft, playerTop);
         }
@@ -110,8 +129,10 @@ static bool TryMove(int proposedLeft, int proposedTop, char[][] mazeChar) //need
         return false;
     if (proposedLeft < 0 || proposedLeft >= Math.Min(Console.BufferWidth, mazeChar[proposedTop].Length))
         return false;
-    if (mazeChar[proposedTop][proposedLeft] == '*' ||mazeChar[proposedTop][proposedLeft] == '|')
+    if (mazeChar[proposedTop][proposedLeft] == '*' || mazeChar[proposedTop][proposedLeft] == '|')
         return false;
+    if (mazeChar[proposedTop][proposedLeft] == '%')
+        return true;
 
     return true;
 }
